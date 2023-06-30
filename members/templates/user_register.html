@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'blog_app/css/login_style.css' %}">
+{% endblock %}
+
+{% block content %}
+<form method="post" action="{% url 'register' %}">
+  {% csrf_token %}
+  {{ form }}
+
+  <input type="submit" value="submit" class="login">
+
+</form>
+{% endblock %}
+
+

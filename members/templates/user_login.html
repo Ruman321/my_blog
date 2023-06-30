@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'blog_app/css/login_style.css' %}">
+{% endblock %}
+
+{% block content %}
+<!--form method="post" action="">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form-->
+<form method="post" action="">
+  {% csrf_token %}
+  <div class="screen-1">
+    <div class="email">
+      <label for="email">Username</label>
+      <div class="sec-2">
+        <ion-icon name="mail-outline"></ion-icon>
+        <input type="text" name="username" id="username" class="form-control" required>
+      </div>
+    </div>
+    <div class="password">
+      <label for="password">Password</label>
+      <div class="sec-2">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        <input type="password" name="password" id="password" class="form-control" required>
+      </div>
+    </div>
+    <button class="login">Login </button>
+    <a href="{% url 'register' %}">Register</a>
+    <div class="footer"><span>Forgot Password?</span></div>
+  </div>
+</form>
+{% if messages %}
+    {% for message in messages %}
+      <p style="color: red;">{{ message }}</p>
+    {% endfor %}
+{% endif %}
+{% endblock %}
+
+
