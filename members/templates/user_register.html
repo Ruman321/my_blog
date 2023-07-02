@@ -1,19 +1,58 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block head %}
-  {{ block.super }}
-  <link rel="stylesheet" href="{% static 'blog_app/css/login_style.css' %}">
-{% endblock %}
-
 {% block content %}
-<form method="post" action="{% url 'register' %}">
-  {% csrf_token %}
-  {{ form }}
-
-  <input type="submit" value="submit" class="login">
-
-</form>
+<div class="layout_padding">
+  <form method="post" action="{% url 'register' %}">
+    {% csrf_token %}
+    <div class="screen-1">
+      <div class="email">
+        <label for="email">Username</label>
+        <div class="sec-2">
+          <ion-icon name="mail-outline"></ion-icon>
+          {{ form.username }}
+        </div>
+      </div>
+      <div class="email">
+        <label for="email">First Name</label>
+        <div class="sec-2">
+          <ion-icon name="mail-outline"></ion-icon>
+          {{ form.first_name }}
+        </div>
+      </div>
+      <div class="email">
+        <label for="email">Last Name</label>
+        <div class="sec-2">
+          <ion-icon name="mail-outline"></ion-icon>
+          {{ form.last_name }}
+        </div>
+      </div>
+      <div class="email">
+        <label for="email">Email</label>
+        <div class="sec-2">
+          <ion-icon name="mail-outline"></ion-icon>
+          {{ form.email }}
+        </div>
+      </div>
+      <div class="password">
+        <label for="password">Password</label>
+        <div class="sec-2">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          {{ form.password1 }}
+        </div>
+      </div>
+      <div class="password">
+        <label for="password">Retype Password</label>
+        <div class="sec-2">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          {{ form.password2 }}
+        </div>
+      </div>
+      <input type="submit" value="submit" class="login">
+      <a href="{% url 'login' %}">Login</a>
+      <div></div><span>Forgot Password?</span></div>
+    </div>
+  </form>
+</div>
+<link rel="stylesheet" href="{% static 'css/login_style.css' %}">
 {% endblock %}
-
-
